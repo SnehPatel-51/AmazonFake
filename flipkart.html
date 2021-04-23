@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&amp;display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Changa:wght@200&amp;display=swap" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <title>Document</title>
+</head>
+<style>
+    #a {
+        outline: none;
+        text-decoration: none;
+        padding: 12px 10px 10px;
+        text-align: center;
+    }
+    
+    a#a:link {
+        color: black;
+        text-decoration: none;
+    }
+    
+    a#a:visited {
+        color: black;
+        text-decoration: none;
+        background-color: rgb(214, 170, 76);
+    }
+    
+    a#a:hover {
+        color: black;
+        text-decoration: solid;
+        background-color: #b4b4b4;
+        border-bottom: 1px solid;
+    }
+    
+    a#a:active {
+        color: black;
+        text-decoration: solid;
+        background-color: #b4b4b4;
+        border-bottom: 1px solid;
+    }
+    
+    img {
+        text-decoration: none;
+        color: inherit;
+        border: none;
+        outline: none;
+    }
+    
+    #container3 {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        font-display: red;
+        margin: 0px;
+    }
+    
+    #container1 {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        background-color: #000000;
+        font-display: red;
+        margin: 15px;
+    }
+    
+    #container2 {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        background-color: #000000;
+        font-display: red;
+        margin: 15px;
+    }
+    
+    #container4 {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        background-color: #000000;
+        font-display: red;
+        margin: 15px;
+    }
+    
+    .small {
+        width: 200px;
+        height: 300px;
+    }
+    
+    .big {
+        width: 300px;
+        height: 200px;
+    }
+</style>
+
+<body>
+    <div id="container1">
+        <div id="logo">
+            <a href="http://www.amazon.in">
+                <img style="width: 200px; height: 80px; margin-right: 100px;" src="data:image/png;base64,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">
+            </a>
+        </div>
+        <div id="searchbar">
+            <input style="width: 1300px; margin-top: 20px;" type="text" name="Search" placeholder="Seach The Items Here">
+        </div>
+        <div style="margin-left: 20px; margin-right: 20px; margin-top: 20px;" id="searchbutton">
+            <button>SEARCH</button>
+        </div>
+        <div style="margin-top: 20px;" id="loginbutton">
+            <button>LOGIN</button>
+        </div>
+        <div id="cartimage">
+            <img style="width: 70px; height: 70px; margin-left: 50px; margin-top: 5px;" class="cartimage" src="data:image/jpeg;base64,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">
+        </div>
+    </div>
+    <div id="container2">
+        <div id="offers">
+            <a id="a" href="https://www.amazon.in/gp/goldbox/ref=sxts_snpl_1_0_de205678-ec6f-4e9b-81d9-8263f3cecac0?pd_rd_w=wRATU&pf_rd_p=de205678-ec6f-4e9b-81d9-8263f3cecac0&pf_rd_r=JNDGX1AP40Y3B1JKK5NX&pd_rd_r=7b7cce4b-e162-4a59-bed1-07e1265e2a97&pd_rd_wg=Kmzkb&qid=1618998487">
+                <span style="color: white;">Offers</span>
+                <img src="https://rukminim1.flixcart.com/flap/128/128/image/f15c02bfeb02d15d.png?q=100" alt="Offers"><br>
+            </a>
+        </div>
+        <div id="grocery">
+            <a id="a" href="https://www.amazon.in/s?k=grocery&i=todays-deals&ref=nb_sb_noss_2">
+                <span style="color: white;">Grocery</span>
+                <img src="https://rukminim1.flixcart.com/flap/128/128/image/29327f40e9c4d26b.png?q=100" alt="Grocery"><br>
+            </a>
+        </div>
+        <div id="mobiles">
+            <a id="a" href="https://www.amazon.in/mobile-phones/b/?ie=UTF8&node=1389401031&ref_=nav_cs_mobiles_9292c6cb7b394d30b2467b8f631090a7">
+                <span style="color: white;">Mobiles</span>
+                <img src="https://rukminim1.flixcart.com/flap/128/128/image/22fddf3c7da4c4f4.png?q=100" alt="Mobiles"><br>
+            </a>
+        </div>
+        <div id="fassion">
+            <a id="a" href="https://www.amazon.in/gp/browse.html?node=6648217031&ref_=nav_cs_fashion_ad6f81eb5d474066bc9e5788a3c19a28">
+                <span style="color: white;">Fassion</span>
+                <img src="https://rukminim1.flixcart.com/flap/128/128/image/82b3ca5fb2301045.png?q=100" alt="Fassion"><br>
+            </a>
+        </div>
+        <div id="electronics">
+            <a id="a" href="https://www.amazon.in/electronics/b/?ie=UTF8&node=976419031&ref_=nav_cs_electronics_c5b70a82461a484189e700166599ce9f">
+                <span style="color: white;"> Electronics </span>
+                <img src="https://rukminim1.flixcart.com/flap/128/128/image/69c6589653afdb9a.png?q=100" alt="Electronics"><br>
+            </a>
+        </div>
+        <div id="home">
+            <a id="a" href="https://www.amazon.in/Home-Kitchen/b/?ie=UTF8&node=976442031&ref_=nav_cs_home_5f0a1657ec2a4557a8233992829feaf3">
+                <span style="color: white;">Home And Decor </span>
+                <img src="https://rukminim1.flixcart.com/flap/128/128/image/ee162bad964c46ae.png?q=100" alt="Home">
+            </a>
+        </div>
+        <div id="applications">
+            <a id="a" href="https://www.amazon.in/s?k=appliences&ref=nb_sb_noss_1">
+                <span style="color: white;"> Applications </span>
+                <img src="https://rukminim1.flixcart.com/flap/128/128/image/0ff199d1bd27eb98.png?q=100" alt="Applications"><br>
+            </a>
+        </div>
+        <div id="more">
+            <a id="a" href="https://www.amazon.in/s?k=beauty+and+health&ref=nb_sb_noss_2">
+                <span style="color: white;">Beauty And Health
+            <img src="https://rukminim1.flixcart.com/flap/128/128/image/dff3f7adcf3a90c6.png?q=100" alt="More"><br>
+            </a>
+        </div>
+    </div>
+    <div class="container" style="background-color: #000000;width=85%;">
+        <div id="myCarousel" class="carousel slide" data-ride="carousel">
+            <!-- Indicators -->
+            <ol class="carousel-indicators">
+                <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                <li data-target="#myCarousel" data-slide-to="1" class=""></li>
+                <li data-target="#myCarousel" data-slide-to="2" class=""></li>
+            </ol>
+
+            <!-- Wrapper for slides -->
+            <div class="carousel-inner">
+                <div class="item next left">
+                    <a href="https://www.amazon.com/b/?node=16225006011&pf_rd_r=F4WJ9QAW2ES7Q59TTR9N&pf_rd_p=b73409ac-dbd7-49a4-91db-aca6c362263b" target="_blank">
+                        <img src="https://images-na.ssl-images-amazon.com/images/G/01/AmazonExports/Fuji/2020/May/Hero/Fuji_TallHero_Beauty_v2_en_US_1x._CB429089975_.jpg" alt="iphone" style="width:100%;">
+                    </a>
+                </div>
+
+                <div class="item">
+                    <a href="https://www.amazon.in/b?node=21246963031&pf_rd_r=N06BKJA1T41SF0Z2MW8N&pf_rd_p=71bd74fc-cc1f-40c5-b4fc-26b1de094911" target="_blank">
+                        <img src="https://images-eu.ssl-images-amazon.com/images/G/31/img21/HPC/GW/HomeEss_1500x600_V2._CB655305268_.jpg" alt="Mackbook" style="width:100%;">
+                    </a>
+                </div>
+                <div class="item">
+                    <a href="https://www.amazon.in/b?node=21246959031&pf_rd_r=N06BKJA1T41SF0Z2MW8N&pf_rd_p=da60bc92-30a7-4ae4-b6b4-18a66bfd62d3" target="_blank">
+                        <img src="https://images-eu.ssl-images-amazon.com/images/G/31/img21/HPC/GW/Food-Health_DesktopTallhero_1500x600._CB655091385_.jpg" alt="Mackbook" style="width:100%;">
+                    </a>
+                </div>
+                <div class="item">
+                    <a href="https://www.amazon.in/macbook/s?k=macbook" target="_blank">
+                        <img src="https://images-eu.ssl-images-amazon.com/images/G/31/img21/OHL_HMT/Discover_Rooms/1500x600_2._CB655348679_.jpg" alt="Mackbook" style="width:100%;">
+                    </a>
+                </div>
+                <div class="item">
+                    <a href="https://www.amazon.in/b?node=21433333031&pf_rd_r=N06BKJA1T41SF0Z2MW8N&pf_rd_p=04f1fa5a-ef3c-4408-8d18-c5f7cbc3ecdd" target="_blank">
+                        <img src="https://images-eu.ssl-images-amazon.com/images/G/31/img17/Home/LA/Diwali2019/Rishab/Auto_Biss/BISS_GW_Hero/Feb_21/PC_Hero_1500x600-._CB658822030_.jpg" alt="Mackbook" style="width:100%;">
+                    </a>
+                </div>
+
+                <div class="item active left">
+                    <a href="https://www.amazon.in/headphones/s?k=headphones" target="_blank">
+                        <img src="https://images-eu.ssl-images-amazon.com/images/G/31/img21/under_1499_updated/v1/tall_hero_1500x600._CB655764075_.jpg" alt="headphones" style="width:100%;">
+                    </a>
+                </div>
+            </div>
+
+            <!-- Left and right controls -->
+            <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+                <span class="glyphicon glyphicon-chevron-left"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="right carousel-control" href="#myCarousel" data-slide="next">
+                <span class="glyphicon glyphicon-chevron-right"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div>
+    </div>
+    <h1 style="font-size: xx-large; font-family: cursive; text-align: center;"><strong>Today's Offers</strong></h1>
+    <div id="container3">
+        <div style="margin: 20px; background-color: #000000; border: 15px solid black;">
+            <div id="box1">
+                <span style="color:white; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; font-size: x-large;">Styles For Me | Up to 70% off</span>
+            </div>
+            <div id="container3">
+                <a href="https://www.amazon.in/s/ref=mega_sv_s23_2_1_1_1?rh=i%3Aapparel%2Cn%3A1968024031&ie=UTF8&lo=apparel&pf_rd_r=N56V1BRV03BZB651JGKY&pf_rd_p=d67690e8-358d-45e3-9c1c-8afb7bf5855c&pd_rd_r=4288f73c-d71b-46cd-a9a3-f20ed5ca065b&pd_rd_w=rl4Rb&pd_rd_wg=lxexF&ref_=pd_gw_unk">
+                    <img src="https://images-eu.ssl-images-amazon.com/images/G/31/img21/Fashion/Gateway/Mens_fashion/1._SY116_CB656503003_.jpg">
+                </a>
+                <a href="https://www.amazon.in/b?node=1983518031&pf_rd_r=N56V1BRV03BZB651JGKY&pf_rd_p=d67690e8-358d-45e3-9c1c-8afb7bf5855c&pd_rd_r=4288f73c-d71b-46cd-a9a3-f20ed5ca065b&pd_rd_w=rl4Rb&pd_rd_wg=lxexF&ref_=pd_gw_unk">
+                    <img src="https://images-eu.ssl-images-amazon.com/images/G/31/img21/Fashion/Gateway/Mens_fashion/2._SY116_CB656503003_.jpg">
+                </a>
+            </div>
+            <div id="box3">
+                <a href="https://www.amazon.in/s/ref=mega_sv_s23_2_1_1_1?rh=i%3Aapparel%2Cn%3A1968024031&ie=UTF8&lo=apparel&pf_rd_r=N56V1BRV03BZB651JGKY&pf_rd_p=d67690e8-358d-45e3-9c1c-8afb7bf5855c&pd_rd_r=4288f73c-d71b-46cd-a9a3-f20ed5ca065b&pd_rd_w=rl4Rb&pd_rd_wg=lxexF&ref_=pd_gw_unk">
+                    <span style="color:white;">Clothing</span> &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&ensp;&ensp;&emsp;&ensp;
+                </a>
+                <a href="https://www.amazon.in/b?node=1983518031&pf_rd_r=N56V1BRV03BZB651JGKY&pf_rd_p=d67690e8-358d-45e3-9c1c-8afb7bf5855c&pd_rd_r=4288f73c-d71b-46cd-a9a3-f20ed5ca065b&pd_rd_w=rl4Rb&pd_rd_wg=lxexF&ref_=pd_gw_unk">
+                    <span style="color:white;">Footwear</span>
+                </a>
+            </div>
+            <div id="container3">
+                <a href="https://www.amazon.in/b?node=2563504031&pf_rd_r=N56V1BRV03BZB651JGKY&pf_rd_p=d67690e8-358d-45e3-9c1c-8afb7bf5855c&pd_rd_r=4288f73c-d71b-46cd-a9a3-f20ed5ca065b&pd_rd_w=rl4Rb&pd_rd_wg=lxexF&ref_=pd_gw_unk">
+                    <img src="https://images-eu.ssl-images-amazon.com/images/G/31/img21/Fashion/Gateway/Mens_fashion/3._SY116_CB656503003_.jpg">
+                </a>
+                <a href="https://www.amazon.in/b?node=2454169031&pf_rd_r=N56V1BRV03BZB651JGKY&pf_rd_p=d67690e8-358d-45e3-9c1c-8afb7bf5855c&pd_rd_r=4288f73c-d71b-46cd-a9a3-f20ed5ca065b&pd_rd_w=rl4Rb&pd_rd_wg=lxexF&ref_=pd_gw_unk">
+                    <img src="https://images-eu.ssl-images-amazon.com/images/G/31/img21/Fashion/Gateway/Mens_fashion/4._SY116_CB656503003_.jpg">
+                </a>
+            </div>
+            <div id="box5">
+                <a href="https://www.amazon.in/b?node=2563504031&pf_rd_r=N56V1BRV03BZB651JGKY&pf_rd_p=d67690e8-358d-45e3-9c1c-8afb7bf5855c&pd_rd_r=4288f73c-d71b-46cd-a9a3-f20ed5ca065b&pd_rd_w=rl4Rb&pd_rd_wg=lxexF&ref_=pd_gw_unk">
+                    <span style="color:white;">Watches</span> &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+                </a>
+                <a href="https://www.amazon.in/b?node=2454169031&pf_rd_r=N56V1BRV03BZB651JGKY&pf_rd_p=d67690e8-358d-45e3-9c1c-8afb7bf5855c&pd_rd_r=4288f73c-d71b-46cd-a9a3-f20ed5ca065b&pd_rd_w=rl4Rb&pd_rd_wg=lxexF&ref_=pd_gw_unk">
+                    <span style="color:white;"> Bags and Luggage</span>
+                </a>
+            </div>
+        </div>
+
+        <div style="margin: 20px; background-color: #000000; border: 15px solid black;">
+            <div id="box1">
+                <span style="color:white; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; font-size: x-large;">Everyday Essentials</span>
+            </div>
+            <div id="container3">
+                <a href="https://www.amazon.in/b?node=21524334031&pf_rd_r=N56V1BRV03BZB651JGKY&pf_rd_p=a39cc256-f2c4-4467-9921-97dcec25b615&pd_rd_r=4288f73c-d71b-46cd-a9a3-f20ed5ca065b&pd_rd_w=pcQor&pd_rd_wg=lxexF&ref_=pd_gw_unk">
+                    <img src="https://images-eu.ssl-images-amazon.com/images/G/31/img18/HPC/GW/Desktop-Qc-1x_4._SY116_CB431329535_.jpg">
+                </a>
+                <a href="https://www.amazon.in/b?node=21532829031&pf_rd_r=N56V1BRV03BZB651JGKY&pf_rd_p=a39cc256-f2c4-4467-9921-97dcec25b615&pd_rd_r=4288f73c-d71b-46cd-a9a3-f20ed5ca065b&pd_rd_w=pcQor&pd_rd_wg=lxexF&ref_=pd_gw_unk">
+                    <img src="https://images-eu.ssl-images-amazon.com/images/G/31/img18/HPC/GW/Desktop-Qc-1x_1._SY116_CB431329533_.jpg">
+                </a>
+            </div>
+            <div id="box3">
+                <a href="https://www.amazon.in/b?node=21524334031&pf_rd_r=N56V1BRV03BZB651JGKY&pf_rd_p=a39cc256-f2c4-4467-9921-97dcec25b615&pd_rd_r=4288f73c-d71b-46cd-a9a3-f20ed5ca065b&pd_rd_w=pcQor&pd_rd_wg=lxexF&ref_=pd_gw_unk">
+                    <span style="color:white;">Cleaning Essentials</span>&emsp;&emsp;&emsp;&emsp;&emsp;
+                </a>
+                <a href="https://www.amazon.in/b?node=21532829031&pf_rd_r=N56V1BRV03BZB651JGKY&pf_rd_p=a39cc256-f2c4-4467-9921-97dcec25b615&pd_rd_r=4288f73c-d71b-46cd-a9a3-f20ed5ca065b&pd_rd_w=pcQor&pd_rd_wg=lxexF&ref_=pd_gw_unk">
+                    <span style="color:white;">Health And Immunity</span>
+                </a>
+            </div>
+            <div id="container3">
+                <a href="https://www.amazon.in/b?node=21524333031&pf_rd_r=N56V1BRV03BZB651JGKY&pf_rd_p=a39cc256-f2c4-4467-9921-97dcec25b615&pd_rd_r=4288f73c-d71b-46cd-a9a3-f20ed5ca065b&pd_rd_w=pcQor&pd_rd_wg=lxexF&ref_=pd_gw_unk">
+                    <img src="https://images-eu.ssl-images-amazon.com/images/G/31/img18/HPC/GW/Desktop-Qc-1x_2._SY116_CB431329535_.jpg">
+                </a>
+                <a href="https://www.amazon.in/b?node=10743762031&pf_rd_r=N56V1BRV03BZB651JGKY&pf_rd_p=a39cc256-f2c4-4467-9921-97dcec25b615&pd_rd_r=4288f73c-d71b-46cd-a9a3-f20ed5ca065b&pd_rd_w=pcQor&pd_rd_wg=lxexF&ref_=pd_gw_unk">
+                    <img src="https://images-eu.ssl-images-amazon.com/images/G/31/img18/HPC/GW/Desktop-Qc-1x_3._SY116_CB431329535_.jpg">
+                </a>
+            </div>
+            <div id="box5">
+                <a href="https://www.amazon.in/b?node=21524333031&pf_rd_r=N56V1BRV03BZB651JGKY&pf_rd_p=a39cc256-f2c4-4467-9921-97dcec25b615&pd_rd_r=4288f73c-d71b-46cd-a9a3-f20ed5ca065b&pd_rd_w=pcQor&pd_rd_wg=lxexF&ref_=pd_gw_unk">
+                    <span style="color:white;">Women Personal Care</span> &emsp;&emsp;&emsp;
+                </a>
+                <a href="https://www.amazon.in/b?node=10743762031&pf_rd_r=N56V1BRV03BZB651JGKY&pf_rd_p=a39cc256-f2c4-4467-9921-97dcec25b615&pd_rd_r=4288f73c-d71b-46cd-a9a3-f20ed5ca065b&pd_rd_w=pcQor&pd_rd_wg=lxexF&ref_=pd_gw_unk">
+                    <span style="color:white;">Man Grooming</span>
+                </a>
+            </div>
+        </div>
+        <div style="margin: 20px; background-color: #000000; border: 15px solid black;">
+            <div id="box1">
+                <span style="color:white; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; font-size: x-large;">Styles For Women | Up to 70% off</span>
+            </div>
+            <div id="container3">
+                <a href="https://www.amazon.in/b?node=1953602031&pf_rd_r=N56V1BRV03BZB651JGKY&pf_rd_p=d01ff71d-4506-46e4-b055-09a4fcc20260&pd_rd_r=4288f73c-d71b-46cd-a9a3-f20ed5ca065b&pd_rd_w=wle0M&pd_rd_wg=lxexF&ref_=pd_gw_unk">
+                    <img src="https://images-eu.ssl-images-amazon.com/images/G/31/img21/Fashion/Gateway/Womens_Fashion/1._SY116_CB656506073_.jpg">
+                </a>
+                <a href="https://www.amazon.in/b?node=18982337031&pf_rd_r=N56V1BRV03BZB651JGKY&pf_rd_p=d01ff71d-4506-46e4-b055-09a4fcc20260&pd_rd_r=4288f73c-d71b-46cd-a9a3-f20ed5ca065b&pd_rd_w=wle0M&pd_rd_wg=lxexF&ref_=pd_gw_unk">
+                    <img src="https://images-eu.ssl-images-amazon.com/images/G/31/img21/Fashion/Gateway/Womens_Fashion/2._SY116_CB656506073_.jpg">
+                </a>
+            </div>
+            <div id="box3">
+                <a href="https://www.amazon.in/b?node=1953602031&pf_rd_r=N56V1BRV03BZB651JGKY&pf_rd_p=d01ff71d-4506-46e4-b055-09a4fcc20260&pd_rd_r=4288f73c-d71b-46cd-a9a3-f20ed5ca065b&pd_rd_w=wle0M&pd_rd_wg=lxexF&ref_=pd_gw_unk">
+                    <span style="color:white;">Clothing</span> &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&ensp;&ensp;&emsp;&ensp;
+                </a>
+                <a href="https://www.amazon.in/b?node=18982337031&pf_rd_r=N56V1BRV03BZB651JGKY&pf_rd_p=d01ff71d-4506-46e4-b055-09a4fcc20260&pd_rd_r=4288f73c-d71b-46cd-a9a3-f20ed5ca065b&pd_rd_w=wle0M&pd_rd_wg=lxexF&ref_=pd_gw_unk">
+                    <span style="color:white;">Footwear + Handbags</span>
+                </a>
+            </div>
+            <div id="container3">
+                <a href="https://www.amazon.in/b?node=2563504031&pf_rd_r=N56V1BRV03BZB651JGKY&pf_rd_p=d67690e8-358d-45e3-9c1c-8afb7bf5855c&pd_rd_r=4288f73c-d71b-46cd-a9a3-f20ed5ca065b&pd_rd_w=rl4Rb&pd_rd_wg=lxexF&ref_=pd_gw_unk">
+                    <img src="https://images-eu.ssl-images-amazon.com/images/G/31/img21/Fashion/Gateway/Womens_Fashion/3._SY116_CB656506073_.jpg">
+                </a>
+                <a href="https://www.amazon.in/b?node=5210079031&pf_rd_r=N56V1BRV03BZB651JGKY&pf_rd_p=d01ff71d-4506-46e4-b055-09a4fcc20260&pd_rd_r=4288f73c-d71b-46cd-a9a3-f20ed5ca065b&pd_rd_w=wle0M&pd_rd_wg=lxexF&ref_=pd_gw_unk">
+                    <img src="https://images-eu.ssl-images-amazon.com/images/G/31/img21/Fashion/Gateway/Womens_Fashion/4._SY116_CB656506073_.jpg">
+                </a>
+            </div>
+            <div id="box5">
+                <a href="https://www.amazon.in/s/ref=mega_sv_s23_1_3_1_1?rh=i%3Awatches%2Cn%3A2563505031&ie=UTF8&lo=watches&pf_rd_r=N56V1BRV03BZB651JGKY&pf_rd_p=d01ff71d-4506-46e4-b055-09a4fcc20260&pd_rd_r=4288f73c-d71b-46cd-a9a3-f20ed5ca065b&pd_rd_w=wle0M&pd_rd_wg=lxexF&ref_=pd_gw_unk">
+                    <span style="color:white;">Watches</span> &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+                </a>
+                <a href="https://www.amazon.in/b?node=5210079031&pf_rd_r=N56V1BRV03BZB651JGKY&pf_rd_p=d01ff71d-4506-46e4-b055-09a4fcc20260&pd_rd_r=4288f73c-d71b-46cd-a9a3-f20ed5ca065b&pd_rd_w=wle0M&pd_rd_wg=lxexF&ref_=pd_gw_unk">
+                    <span style="color:white;">Fassion jewellery</span>
+                </a>
+            </div>
+        </div>
+        <div style="margin: 20px; background-color: #000000; border: 15px solid black;">
+            <div id="box1">
+                <span style="color:white; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; font-size: x-large;">Revamp your home in style</span>
+            </div>
+            <div id="container3">
+                <a href="https://www.amazon.in/b?node=1380442031&pf_rd_r=N56V1BRV03BZB651JGKY&pf_rd_p=285bbf25-f5c8-4f1b-8bb0-6477f7f93e32&pd_rd_r=4288f73c-d71b-46cd-a9a3-f20ed5ca065b&pd_rd_w=VPdPX&pd_rd_wg=lxexF&ref_=pd_gw_unk">
+                    <img src="https://images-eu.ssl-images-amazon.com/images/G/31/IMG20/Home/2021/GW/MSO/HF_PC_low._SY116_CB657403594_.jpg">
+                </a>
+                <a href="https://www.amazon.in/b?node=1380374031&pf_rd_r=N56V1BRV03BZB651JGKY&pf_rd_p=285bbf25-f5c8-4f1b-8bb0-6477f7f93e32&pd_rd_r=4288f73c-d71b-46cd-a9a3-f20ed5ca065b&pd_rd_w=VPdPX&pd_rd_wg=lxexF&ref_=pd_gw_unk">
+                    <img src="https://images-eu.ssl-images-amazon.com/images/G/31/IMG20/Home/2021/GW/MSO/HD_PC_low._SY116_CB657403594_.jpg">
+                </a>
+            </div>
+            <div id="box3">
+                <a href="https://www.amazon.in/b?node=1380442031&pf_rd_r=N56V1BRV03BZB651JGKY&pf_rd_p=285bbf25-f5c8-4f1b-8bb0-6477f7f93e32&pd_rd_r=4288f73c-d71b-46cd-a9a3-f20ed5ca065b&pd_rd_w=VPdPX&pd_rd_wg=lxexF&ref_=pd_gw_unk">
+                    <span style="color:white;">Bead Sheet</span> &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&ensp;&ensp;
+                </a>
+                <a href="https://www.amazon.in/b?node=1380374031&pf_rd_r=N56V1BRV03BZB651JGKY&pf_rd_p=285bbf25-f5c8-4f1b-8bb0-6477f7f93e32&pd_rd_r=4288f73c-d71b-46cd-a9a3-f20ed5ca065b&pd_rd_w=VPdPX&pd_rd_wg=lxexF&ref_=pd_gw_unk">
+                    <span style="color:white;">Home Decoration</span>
+                </a>
+            </div>
+            <div id="box4">
+                <a href="https://www.amazon.in/b?node=1380510031&pf_rd_r=N56V1BRV03BZB651JGKY&pf_rd_p=285bbf25-f5c8-4f1b-8bb0-6477f7f93e32&pd_rd_r=4288f73c-d71b-46cd-a9a3-f20ed5ca065b&pd_rd_w=VPdPX&pd_rd_wg=lxexF&ref_=pd_gw_unk">
+                    <img src="https://images-eu.ssl-images-amazon.com/images/G/31/IMG20/Home/2021/GW/MSO/HSO_PC_low._SY116_CB657403594_.jpg">
+                </a>
+                <a href="https://www.amazon.in/b?node=1380485031&pf_rd_r=N56V1BRV03BZB651JGKY&pf_rd_p=285bbf25-f5c8-4f1b-8bb0-6477f7f93e32&pd_rd_r=4288f73c-d71b-46cd-a9a3-f20ed5ca065b&pd_rd_w=VPdPX&pd_rd_wg=lxexF&ref_=pd_gw_unk">
+                    <img src="https://images-eu.ssl-images-amazon.com/images/G/31/IMG20/Home/2021/GW/MSO/IL_PC_low._SY116_CB657403594_.jpg">
+                </a>
+            </div>
+            <div id="box5">
+                <a href="https://www.amazon.in/b?node=1380510031&pf_rd_r=N56V1BRV03BZB651JGKY&pf_rd_p=285bbf25-f5c8-4f1b-8bb0-6477f7f93e32&pd_rd_r=4288f73c-d71b-46cd-a9a3-f20ed5ca065b&pd_rd_w=VPdPX&pd_rd_wg=lxexF&ref_=pd_gw_unk">
+                    <span style="color:white;">Home Storage</span> &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+                </a>
+                <a href="https://www.amazon.in/b?node=1380485031&pf_rd_r=N56V1BRV03BZB651JGKY&pf_rd_p=285bbf25-f5c8-4f1b-8bb0-6477f7f93e32&pd_rd_r=4288f73c-d71b-46cd-a9a3-f20ed5ca065b&pd_rd_w=VPdPX&pd_rd_wg=lxexF&ref_=pd_gw_unk">
+                    <span style="color:white;">Lighting conditions</span>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div style="text-align: center;">
+        <img src="https://m.media-amazon.com/images/G/31/AMS/IN/970X250-_desktop_banner.jpg">
+    </div>
+    <div style="margin: 20px; background-color: #000000; border: 15px solid black;">
+        <div id="box1">
+            <span style="color:white; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; font-size: x-large;">Best Deals on Mobiles</span> &emsp;<span><a href="">See all deals</a></span>
+        </div>
+        <div id="container4">
+            <div id="box2">
+                <a href="https://www.amazon.in/dp/B08VB2SJ76/ref=QANav11CTA_en_IN_4?pf_rd_r=H1A1QX0BWWG538VG7F7W&pf_rd_p=6a7e92fa-d065-460a-aa87-881b608157a9&pf_rd_m=A1VBAL9TL5WCBF&pf_rd_s=merchandised-search-7&pf_rd_t=&pf_rd_i=1389401031">
+                    <img class="small" src="https://images-na.ssl-images-amazon.com/images/G/31/img20/Wireless/OPPO/Fseries/D21207942_IN_WLD_BAU_OPPO_F19_series_SBCs_hex._SY530_QL85_.jpg">
+                </a>
+            </div>
+            <div id="box3">
+                <a href="https://www.amazon.in/dp/B08VB2SJ76/ref=QANav11CTA_en_IN_4?pf_rd_r=H1A1QX0BWWG538VG7F7W&pf_rd_p=6a7e92fa-d065-460a-aa87-881b608157a9&pf_rd_m=A1VBAL9TL5WCBF&pf_rd_s=merchandised-search-7&pf_rd_t=&pf_rd_i=1389401031">
+                    <span style="color:white; margin:15px; font-size: larger; font-family: arial;">Oppo F 19 Pro</span>
+                </a>
+                <ul style="margin-top: 10px; color:whitesmoke; margin-right:5px;">
+                    <li>
+                        MediaTek Helio P95 Processor
+                    </li>
+                    <li>
+                        48 MP Quad Camera
+                    </li>
+                    <li>
+                        30W Fast Charging
+                    </li>
+                    <li>
+                        6.43" Super AMOLED Screen
+                    </li>
+                </ul>
+                <a href="" style="border: 0px solid black; background-color: whitesmoke; color: black; padding: 10px; margin-left: 35px; margin-top: 50px;">
+                    Shop Now
+                </a>
+            </div>
+            <div id="box2">
+                <a href="https://www.amazon.com/ONEPLUS-AC2003-Model-International-Version/dp/B01LW1I27J/ref=sr_1_7?dchild=1&keywords=oneplus+nord&qid=1619089495&sr=8-7">
+                    <img class="small" src="https://images-na.ssl-images-amazon.com/images/G/31/img21/Wireless/CatPage/6C/D20819578_WL_CatPage_NewWidget_hex_OnePlus-Nord-5G._SY530_QL85_.jpg">
+                </a>
+            </div>
+            <div id="box3">
+                <a href="https://www.amazon.com/ONEPLUS-AC2003-Model-International-Version/dp/B01LW1I27J/ref=sr_1_7?dchild=1&keywords=oneplus+nord&qid=1619089495&sr=8-7">
+                    <span style="color:white; margin:15px; font-size: larger; font-family: arial;">Oneplus Nord 5G</span>
+                </a>
+                <ul style="margin-top: 10px; color:whitesmoke; margin-right:5px;">
+                    <li>
+                        Snapdragon 765G 5G
+                    </li>
+                    <li>
+                        48 MP Quad Camera
+                    </li>
+                    <li>
+                        30W Fast Charging
+                    </li>
+                    <li>
+                        6.44" Super AMOLED 90Hz Screen
+                    </li>
+                </ul>
+                <a href="" style="border: 0px solid black; background-color: whitesmoke; color: black; padding: 10px; margin-left: 35px; margin-top: 50px;">
+                    Shop Now
+                </a>
+            </div>
+            <div id="box2">
+                <a href="https://www.amazon.com/Samsung-Dual-SIM-SM-N975F-Unlocked-Smartphone/dp/B07W6XFX64/ref=sr_1_6?dchild=1&keywords=samsung+galaxy+note+10+lite&qid=1619089680&sr=8-6">
+                    <img class="small" src="https://images-na.ssl-images-amazon.com/images/G/31/img21/Wireless/CatPage/6C/D20819578_WL_CatPage_NewWidget__hex_02._SY530_QL85_.jpg">
+                </a>
+            </div>
+            <div id="box3">
+                <a href="https://www.amazon.com/Samsung-Dual-SIM-SM-N975F-Unlocked-Smartphone/dp/B07W6XFX64/ref=sr_1_6?dchild=1&keywords=samsung+galaxy+note+10+lite&qid=1619089680&sr=8-6">
+                    <span style="color:white; margin:15px; font-size: larger; font-family: arial;">Galaxy Note 10 +</span>
+                </a>
+                <ul style="margin-top: 10px; color:whitesmoke; margin-right:5px; width: 160px;">
+                    <li>
+                        Exinos 1000+ Processor
+                    </li>
+                    <li>
+                        16 - 12 - 12 Tripple Camera Setup
+                    </li>
+                    <li>
+                        30W Fast Charging
+                    </li>
+                    <li>
+                        6.8" Quad HD+ Dynamic AMOLED Infinity-O Display
+                    </li>
+                </ul>
+                <a href="" style="border: 0px solid black; background-color: whitesmoke; color: black; padding: 10px; margin-left: 35px; margin-top: 50px;">
+                    Shop Now
+                </a>
+            </div>
+            <div id="box2">
+                <a href="https://www.amazon.com/OnePlus-Unlocked-Smartphone-Hasselblad-Wireless/dp/B08Y73NTXY/ref=sr_1_3?dchild=1&keywords=oneplus+9+5g+phone&qid=1619089748&sr=8-3">
+                    <img class="small" src="https://images-na.ssl-images-amazon.com/images/G/31/img20/Wireless/Cnnjpp/OnePlus_9Series/1/D20968569_WLD_ItelVision1Pro_SBCs_hex._SY530_QL85_.jpg">
+                </a>
+            </div>
+            <div id="box3">
+                <a href="https://www.amazon.com/OnePlus-Unlocked-Smartphone-Hasselblad-Wireless/dp/B08Y73NTXY/ref=sr_1_3?dchild=1&keywords=oneplus+9+5g+phone&qid=1619089748&sr=8-3">
+                    <span style="color:white; margin:15px; font-size: larger; font-family: arial;">Oneplus 9 series </span>
+                </a>
+                <ul style="margin-top: 10px; color:whitesmoke; margin-right:5px;">
+                    <li>
+                        Snapdragon 888 Processor
+                    </li>
+                    <li>
+                        64 MP Quad Camera
+                    </li>
+                    <li>
+                        65W Fast Charging
+                    </li>
+                    <li>
+                        6.55" Super AMOLED 120Hz Screen
+                    </li>
+                </ul>
+                <a href="" style="border: 0px solid black; background-color: whitesmoke; color: black; padding: 10px; margin-left: 35px; margin-top: 50px;">
+                    Shop Now
+                </a>
+            </div>
+            <div id="box2">
+                <a href="https://www.amazon.com/Samsung-Unlocked-Smartphone-Pro-Grade-SM-G991UZVAXAA/dp/B08N3J7GJ8/ref=sr_1_1_sspa?dchild=1&keywords=galaxy+s21&qid=1619089793&sr=8-1-spons&psc=1&spLa=ZW5jcnlwdGVkUXVhbGlmaWVyPUEyRFc5V0xDUEZRUTAyJmVuY3J5cHRlZElkPUEwNTgwNDUyMlBCMTg4UUNETFVRNyZlbmNyeXB0ZWRBZElkPUEwNTk4MzE2R1pHSEVaOEtaTjJUJndpZGdldE5hbWU9c3BfYXRmJmFjdGlvbj1jbGlja1JlZGlyZWN0JmRvTm90TG9nQ2xpY2s9dHJ1ZQ==">
+                    <img class="small" src="https://images-na.ssl-images-amazon.com/images/G/31/img21/Wireless/CatPage/6C/D20819578_WL_CatPage_NewWidget_SBCs-hex_s21._SY530_QL85_.jpg">
+                </a>
+            </div>
+            <div id="box3">
+                <a href="https://www.amazon.com/Samsung-Unlocked-Smartphone-Pro-Grade-SM-G991UZVAXAA/dp/B08N3J7GJ8/ref=sr_1_1_sspa?dchild=1&keywords=galaxy+s21&qid=1619089793&sr=8-1-spons&psc=1&spLa=ZW5jcnlwdGVkUXVhbGlmaWVyPUEyRFc5V0xDUEZRUTAyJmVuY3J5cHRlZElkPUEwNTgwNDUyMlBCMTg4UUNETFVRNyZlbmNyeXB0ZWRBZElkPUEwNTk4MzE2R1pHSEVaOEtaTjJUJndpZGdldE5hbWU9c3BfYXRmJmFjdGlvbj1jbGlja1JlZGlyZWN0JmRvTm90TG9nQ2xpY2s9dHJ1ZQ==">
+                    <span style="color:white; margin:15px; font-size: larger; font-family: arial;">Galaxy S21 </span>
+                </a>
+                <ul style="margin-top: 10px; color:whitesmoke; margin-right:5px;">
+                    <li>
+                        Exynos 2100 Processor
+                    </li>
+                    <li>
+                        12 - 12 - 64 Tripple Camera
+                    </li>
+                    <li>
+                        6.2" Super AMOLED Screen
+                    </li>
+                </ul>
+                <a href="" style="border: 0px solid black; background-color: whitesmoke; color: black; padding: 10px; margin-left: 35px; margin-top: 50px;">
+                    Shop Now
+                </a>
+            </div>
+        </div>
+    </div>
+    <div id="container3">
+        <img style="width: 100px; height: 50px; margin-right: 100px;" src="data:image/png;base64,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">
+    </div>
+    <div id="container3" style="background-color: black;">
+        <div style="margin: 15px; color: whitesmoke;">
+            <strong style="font-size: larger; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">Get To Know Us</strong>
+            <br> Career
+            <br> Blog
+            <br> About Amazon<br> Investor Relation<br> Amazon Devices<br>
+        </div>
+        <div style="margin: 15px; color: whitesmoke;">
+            <strong style="font-size: larger; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">Make Money With Us</strong><br> Amazon Business Card
+            <br> Shop With Points
+            <br> Reload Your Balance<br>Amazon Currency Converter<br>
+        </div>
+        <div style="margin: 15px; color: whitesmoke;">
+            <strong style="font-size: larger; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">Let Us Help You</strong><br> Amazon And Covid 19
+            <br> Your Account
+            <br>Your Order<br>Return And Replacement<br>Make Your Content And Devices<br>Help
+        </div>
+    </div>
+    <div id="container3" style="margin: 15px; color: whitesmoke; background-color: black; margin: 0px;">
+        <strong style="font-size: larger; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">Made BY Sneh Patel 2020kuec2016 </strong>
+    </div>
+</body>
+
+</html>
